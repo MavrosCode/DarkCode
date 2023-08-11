@@ -1,7 +1,7 @@
 
-var hora;  //VARIAVEL PARA VERIFICAR AS MUDANÇAS >= 18
-var minuto;
-var segundo;
+var hora =10;  //VARIAVEL PARA VERIFICAR AS MUDANÇAS >= 18
+var minuto=10;
+var segundo=10;
 var diaOuNoite = "";
 setInterval(() => {
     (()=>{
@@ -43,6 +43,10 @@ function saveTime() {
 }
 function modificar() {
     const sessao = document.getElementById('entrar')
+    sessao.style.position = "absolute"
+    sessao.style.top = "0"
+    sessao.style.left = "50%"
+
     const entradas = document.createElement('input')
     entradas.type = "time"
     sessao.appendChild(entradas)
