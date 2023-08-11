@@ -39,7 +39,7 @@ body{
     height: 50%;
     width: 100%;
     display: flex;
-    align-items:start;
+    align-items: center;
 }
 .botoes{
     margin-top: 3%;

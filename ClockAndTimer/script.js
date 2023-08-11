@@ -46,9 +46,10 @@ function modificar() {
 
     const baixo = document.getElementById('baixo')
     const entradas = document.createElement('input')
+    const botao = document.createElement('button')
     entradas.type = "time"
     baixo.appendChild(entradas)
-    const botao = document.createElement('button')
+
     botao.innerText = "Enviar"
     botao.addEventListener('click',() =>{
         const horario = entradas.value;
@@ -59,7 +60,7 @@ function modificar() {
     setTimeout(() => {
         baixo.removeChild(botao)
         baixo.removeChild(entradas)
-    }, 5000);
+    }, 8000);
 
 
 }
