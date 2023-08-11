@@ -24,6 +24,14 @@ body{
 #salvos{
     font-size: 20px;
     color: #fff;
+    width: 100%;
+    height: 47vh;
+    overflow:auto;
+    flex-wrap: wrap;   
+    flex: auto;
+}
+#salvo>p{
+    width: 20px;
 }
 #eclipse{
     width: 200px; 

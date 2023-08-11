@@ -1,8 +1,11 @@
-
-var hora =10;  //VARIAVEL PARA VERIFICAR AS MUDANÇAS >= 18
-var minuto=10;
-var segundo=10;
+const atual= new Date(0);
+atual.toLocaleTimeString('PT-BR')
+var hora = 21;  //VARIAVEL PARA VERIFICAR AS MUDANÇAS >= 18
+var minuto= 59;
+var segundo= 55;
 var diaOuNoite = "";
+localStorage.setItem('hora',`${hora}`)
+
 setInterval(() => {
     (()=>{
         //verificar por fora do setInterval
@@ -13,6 +16,9 @@ setInterval(() => {
         const image = document.getElementById('imagem')
         image.src = clima
     })()
+  
+    
+
     segundo++;
     if(segundo>59){
         minuto++;
@@ -46,9 +52,12 @@ function modificar() {
 
     const baixo = document.getElementById('baixo')
     const entradas = document.createElement('input')
-    const botao = document.createElement('button')
 
-    entradas.type = "time"
+    const botao = document.createElement('button')
+    entradas.type = "Texto"
+    entradas.value = "00:00:00"
+    entradas.width = 30
+ 
     botao.innerText = "Enviar"
     
     botao.addEventListener('click',() =>{
@@ -64,14 +73,7 @@ function modificar() {
             baixo.removeChild(botao)
             baixo.removeChild(entradas)
         }, 10000);
-
-    
     }
-    
-    
-    
-
-
 }
 
 function ObterHoraAgora() {
