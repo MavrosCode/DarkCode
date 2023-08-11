@@ -41,15 +41,13 @@ function saveTime() {
     novoTempo.textContent = `Salvo: ${hora}:${minuto}:${segundo} ${diaOuNoite}`
     Salvo.appendChild(novoTempo);
 }
-function modificar() {
-    const sessao = document.getElementById('entrar')
-    sessao.style.position = "absolute"
-    sessao.style.top = "0"
-    sessao.style.left = "50%"
 
+function modificar() {
+
+    const baixo = document.getElementById('baixo')
     const entradas = document.createElement('input')
     entradas.type = "time"
-    sessao.appendChild(entradas)
+    baixo.appendChild(entradas)
     const botao = document.createElement('button')
     botao.innerText = "Enviar"
     botao.addEventListener('click',() =>{
@@ -57,6 +55,18 @@ function modificar() {
         [hora, minuto] = horario.split(':')
         document.getElementById('relogio').innerHTML = `${hora} : ${minuto} : ${segundo} ${diaOuNoite}`
     })
+    baixo.appendChild(botao)
+    setTimeout(() => {
+        baixo.removeChild(botao)
+        baixo.removeChild(entradas)
+    }, 5000);
 
-    sessao.appendChild(botao)
+
+}
+
+function ObterHoraAgora() {
+    const dataHoraAtual = new Date();
+    hora = dataHoraAtual.getHours()
+    minuto = dataHoraAtual.getMinutes()
+    segundo = dataHoraAtual.getSeconds()
 }
