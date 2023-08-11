@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+   
     <title>Relógio</title>
 </head>
 <body>
@@ -22,7 +22,11 @@
         <button class="botoes" id="btnSaveTime" onclick="saveTime()">Save Time</button>
         <button class="botoes" id="btnResetar" onclick="resetar()">Resetar</button>
         <button class="botoes" id="btnHoraAtual" onclick="ObterHoraAgora()">Hora Atual</button>
-        <button class="botoes" id="btnModify" onclick="modificar()">modificar hora</button>
+        <button class="botoes" id="btnModify" name="modifica" onclick="modificar()">modificar hora</button>
+
+
+
+        
     </section>
     <section>
         <section id="salvos">
@@ -32,6 +36,8 @@
 
         </section>
     </section>
+    
 </body>
+<script src="./script.js"></script>
 </html>
 

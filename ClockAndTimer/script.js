@@ -47,20 +47,29 @@ function modificar() {
     const baixo = document.getElementById('baixo')
     const entradas = document.createElement('input')
     const botao = document.createElement('button')
-    entradas.type = "time"
-    baixo.appendChild(entradas)
 
+    entradas.type = "time"
     botao.innerText = "Enviar"
+    
     botao.addEventListener('click',() =>{
         const horario = entradas.value;
         [hora, minuto] = horario.split(':')
         document.getElementById('relogio').innerHTML = `${hora} : ${minuto} : ${segundo} ${diaOuNoite}`
     })
-    baixo.appendChild(botao)
-    setTimeout(() => {
-        baixo.removeChild(botao)
-        baixo.removeChild(entradas)
-    }, 8000);
+    
+    if(baixo.lastElementChild.getAttribute('name') == "modifica"){
+        baixo.appendChild(entradas)
+        baixo.appendChild(botao)
+        return setTimeout(() => {
+            baixo.removeChild(botao)
+            baixo.removeChild(entradas)
+        }, 10000);
+
+    
+    }
+    
+    
+    
 
 
 }
