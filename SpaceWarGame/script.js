@@ -2,21 +2,18 @@ const nave = document.querySelector('.nave');
 
 
 const loop = setInterval (() =>{
-    //const navePosition = window.getComputedStyle(nave).right
-    //console.log(navePosition)
-    //verificar se o circulo bateu na nave
-},500)
+    colisao()
+},1)
 setInterval(() =>{
     criarInimigo()
-    console.log('criadoo');
-
-},300)
+},500)
 
 setInterval(()=>{ 
      const gameBoard = document.querySelector('.game-board');
      const getChild = document.querySelector('.inimigos')
      gameBoard.removeChild(getChild)
-},4000)
+     
+},2000)
 
 function criarInimigo() {
     const gameBoard = document.querySelector('.game-board');
@@ -31,9 +28,6 @@ function criarInimigo() {
     enemy.classList = 'inimigos'
     gameBoard.appendChild(enemy)
 }
-
-
-
 
 function LimitesDoMapa() {
     
@@ -97,5 +91,20 @@ addEventListener('keypress', (e) =>{
             console.log(e.key);
             break;
     }
-    console.log(`Posicoes: ${coord.x}, ${coord.y}`)
+    //console.log(`Posicoes: ${coord.x}, ${coord.y}`)
 })
+
+
+var score = 0;
+function colisao() {
+    const objetos = document.querySelector('.game-board').childNodes
+    //const objetoInimigo= window.getComputedStyle(objetos[1])
+    const objetoNave = window.getComputedStyle(nave)
+
+    // const objetos = document.querySelector('.inimigos')
+    if(parseInt(objetoInimigo.bottom) - parseInt(objetoNave.bottom) <= 10 && parseInt(objetoInimigo.left) - parseInt(objetoNave.left) <=10) {
+        score++
+        console.log(score)
+    }   
+    document.querySelector('.scor').innerHTML = `${score}`   
+}
