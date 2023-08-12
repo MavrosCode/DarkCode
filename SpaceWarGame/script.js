@@ -13,40 +13,35 @@ let coord = {
 
 addEventListener('keypress', (e) =>{
 
-    if(nave.style.bottom >= window.innerWidth) return console.log('erro')
+    if(!coord.y >=210 || coord.y <= -10)return;
     switch (e.key) {
         case 'w':
         case 'ArrowUp':
-            console.log(e.key);
-            coord.x = coord.x - 10;
-            nave.style.top = `${coord.x}px`;
+            coord.x = coord.x - 5;
+            nave.style.bottom = `${coord.x}px`;
             break;
-
 
         case 'a':
         case 'ArrowLeft':
-            console.log(e.key);
-            coord.y = coord.y - 10;
+ 
+            coord.y = coord.y - 5;
             nave.style.left = `${coord.y}px`;
             break;
         
         case 's':
         case 'ArrowDown':
-            console.log(e.key);
-            coord.x = coord.x + 10;
+            coord.x = coord.x + 5;
             nave.style.bottom = `${coord.x}px`;
             break;
 
-
         case 'd':
         case 'ArrowRight':
-            console.log(e.key);
-            coord.y = coord.y + 10;
-            nave.style.right = `${coord.y}px`;
+            coord.y = coord.y + 5;
+            nave.style.left = `${coord.y}px`;
             break;
 
         default:
-            console.log(console.error('deu ruim'));
             break;
     }
+    console.log(e.key);
 })
