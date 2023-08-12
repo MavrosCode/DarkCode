@@ -64,6 +64,9 @@ addEventListener('keypress', (e) =>{
             nave.style.left = `${coord.y}px`;
             break;
 
+        case ' ':
+            console.log('ESPACO');
+            break;
         default:
             console.log(e.key);
             break;
