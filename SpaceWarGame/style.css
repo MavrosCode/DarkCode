@@ -13,9 +13,9 @@ body{
     height: 300px;
     border: 1px solid black;
     position: relative;
-    /*overflow: hidden;*/
-    /*background-image: url('./images/background.jpg');
-    background-size: cover;*/
+    overflow: hidden;
+    background-image: url('./images/background.jpg');
+    background-size: cover;
 }
 /*.star{
     width: 100%;
@@ -37,7 +37,7 @@ body{
     height: 30px;
     position: absolute;
     bottom: 0px;
-    left: 0px;
+    left: 150px;
     
     /*transform: rotate3d(1, 1, 0, 50deg);*/
     

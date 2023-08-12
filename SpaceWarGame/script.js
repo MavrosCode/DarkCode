@@ -4,7 +4,6 @@ const nave = document.querySelector('.nave');
 const loop = setInterval (() =>{
     //const navePosition = window.getComputedStyle(nave).right
     //console.log(navePosition)
-    
 },500)
 
 let coord = {
@@ -12,7 +11,6 @@ let coord = {
     y: nave.getBoundingClientRect().y
 };
 console.log(coord);
-
 
 function LimitesDoMapa() {
     
@@ -32,10 +30,16 @@ function LimitesDoMapa() {
         coord.x = coord.x + 5
         nave.style.bottom = `${coord.x}px`;
     }
+    if(coord.x > 268){
+        nave.style.bottom = `100px`;
+    }
 }
 
 
+coord.x = 0;
+coord.y = 150;
 addEventListener('keypress', (e) =>{
+
     LimitesDoMapa()
     switch (e.key.toLowerCase()) {
         case 'w':
@@ -61,6 +65,7 @@ addEventListener('keypress', (e) =>{
             break;
 
         default:
+            console.log(e.key);
             break;
     }
     console.log(`AAAAAAA ${coord.x}, ${coord.y}`)
