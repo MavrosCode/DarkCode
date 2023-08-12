@@ -3,24 +3,27 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .game-boar{
     width: 30%;
     height: 300px;
-    margin: 0 auto;
     border: 1px solid black;
     position: relative;
-    overflow: hidden;
-    background-image: url('./images/background.jpg');
-    background-size: cover;
+    /*overflow: hidden;*/
+    /*background-image: url('./images/background.jpg');
+    background-size: cover;*/
 }
-.star{
+/*.star{
     width: 100%;
     height: 100%;
     position: absolute;
 
     animation: estrelar 10s infinite linear;
-}
+}*/
 @keyframes estrelar {
     from{
         top: -80px;
@@ -33,8 +36,8 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    bottom: 50px;
-    left: 100px;
+    bottom: 0px;
+    left: 0px;
     
     /*transform: rotate3d(1, 1, 0, 50deg);*/
     

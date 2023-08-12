@@ -2,40 +2,60 @@ const nave = document.querySelector('.nave');
 
 
 const loop = setInterval (() =>{
-    const navePosition = window.getComputedStyle(nave).right
-    console.log(navePosition)
+    //const navePosition = window.getComputedStyle(nave).right
+    //console.log(navePosition)
+    
 },500)
 
 let coord = {
     x: nave.getBoundingClientRect().x,
     y: nave.getBoundingClientRect().y
 };
+console.log(coord);
+
+
+function LimitesDoMapa() {
+    
+    if(coord.y <= -5){
+        coord.y = coord.y + 5;
+        nave.style.left = `${coord.y}px`;
+    }
+    if(coord.y >= 300){
+        coord.y = coord.y - 5;
+        nave.style.left = `${coord.y}px`;
+    }
+    if(coord.x >= 268){
+        coord.x = coord.x - 5
+        nave.style.bottom = `${coord.x}px`;
+    }
+    if(coord.x <= 1){
+        coord.x = coord.x + 5
+        nave.style.bottom = `${coord.x}px`;
+    }
+}
+
 
 addEventListener('keypress', (e) =>{
-
-    if(!coord.y >=210 || coord.y <= -10)return;
-    switch (e.key) {
+    LimitesDoMapa()
+    switch (e.key.toLowerCase()) {
         case 'w':
-        case 'ArrowUp':
-            coord.x = coord.x - 5;
+            coord.x = coord.x + 5;
             nave.style.bottom = `${coord.x}px`;
             break;
 
         case 'a':
-        case 'ArrowLeft':
  
             coord.y = coord.y - 5;
             nave.style.left = `${coord.y}px`;
             break;
         
         case 's':
-        case 'ArrowDown':
-            coord.x = coord.x + 5;
+         
+            coord.x = coord.x - 5;
             nave.style.bottom = `${coord.x}px`;
             break;
 
         case 'd':
-        case 'ArrowRight':
             coord.y = coord.y + 5;
             nave.style.left = `${coord.y}px`;
             break;
@@ -43,5 +63,5 @@ addEventListener('keypress', (e) =>{
         default:
             break;
     }
-    console.log(e.key);
+    console.log(`AAAAAAA ${coord.x}, ${coord.y}`)
 })
