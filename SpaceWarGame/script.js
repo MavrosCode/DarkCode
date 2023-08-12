@@ -4,13 +4,36 @@ const nave = document.querySelector('.nave');
 const loop = setInterval (() =>{
     //const navePosition = window.getComputedStyle(nave).right
     //console.log(navePosition)
+    //verificar se o circulo bateu na nave
 },500)
+setInterval(() =>{
+    criarInimigo()
+    console.log('criadoo');
 
-let coord = {
-    x: nave.getBoundingClientRect().x,
-    y: nave.getBoundingClientRect().y
-};
-console.log(coord);
+},300)
+
+setInterval(()=>{ 
+     const gameBoard = document.querySelector('.game-board');
+     const getChild = document.querySelector('.inimigos')
+     gameBoard.removeChild(getChild)
+},4000)
+
+function criarInimigo() {
+    const gameBoard = document.querySelector('.game-board');
+    const enemy = document.createElement('div');
+    enemy.style.width = "10px"
+    enemy.style.height = "10px"
+    enemy.style.borderRadius = "50%"
+    enemy.style.backgroundColor = "purple"
+    enemy.style.position = 'absolute'
+    enemy.style.top = `${Math.random() * (268 - 200) + 20}px`
+    enemy.style.left = `${Math.random() * (300 - 5) + 20}px`
+    enemy.classList = 'inimigos'
+    gameBoard.appendChild(enemy)
+}
+
+
+
 
 function LimitesDoMapa() {
     
@@ -35,7 +58,10 @@ function LimitesDoMapa() {
     }
 }
 
-
+let coord = {
+    x: nave.getBoundingClientRect().x,
+    y: nave.getBoundingClientRect().y
+};
 coord.x = 0;
 coord.y = 150;
 addEventListener('keypress', (e) =>{
@@ -71,5 +97,5 @@ addEventListener('keypress', (e) =>{
             console.log(e.key);
             break;
     }
-    console.log(`AAAAAAA ${coord.x}, ${coord.y}`)
+    console.log(`Posicoes: ${coord.x}, ${coord.y}`)
 })

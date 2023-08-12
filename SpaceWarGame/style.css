@@ -8,12 +8,12 @@ body{
     justify-content: center;
     align-items: center;
 }
-.game-boar{
+.game-board{
     width: 30%;
     height: 300px;
     border: 1px solid black;
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     background-image: url('./images/background.jpg');
     background-size: cover;
 }
@@ -27,5 +27,13 @@ body{
     /*transform: rotate3d(1, 1, 0, 50deg);*/
 }
 .inimigos{
-    animation: enemies 4s forwards linear;
+    animation: enemies 4s forwards ease-in;
+}
+@keyframes enemies {
+    from{
+        top: -10px;
+    }
+    to{
+        top: 300px;
+    }
 }
