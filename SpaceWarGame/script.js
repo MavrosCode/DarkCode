@@ -1,19 +1,20 @@
 const nave = document.querySelector('.nave');
 
-
-const loop = setInterval (() =>{
-    colisao()
-},1)
-setInterval(() =>{
+const inimigoCriado = setInterval(async() =>{
     criarInimigo()
-},500)
+    
+    const limpar =  setInterval(() =>{
+        clearInterval(inimigoCriado)
+        criarInimigo()
+    },10000)
+},2000)
 
 setInterval(()=>{ 
      const gameBoard = document.querySelector('.game-board');
      const getChild = document.querySelector('.inimigos')
      gameBoard.removeChild(getChild)
-     
-},2000)
+},3000)
+
 
 function criarInimigo() {
     const gameBoard = document.querySelector('.game-board');
@@ -21,7 +22,7 @@ function criarInimigo() {
     enemy.style.width = "10px"
     enemy.style.height = "10px"
     enemy.style.borderRadius = "50%"
-    enemy.style.backgroundColor = "purple"
+    enemy.style.backgroundColor = "white"
     enemy.style.position = 'absolute'
     enemy.style.top = `${Math.random() * (268 - 200) + 20}px`
     enemy.style.left = `${Math.random() * (300 - 5) + 20}px`
@@ -95,16 +96,3 @@ addEventListener('keypress', (e) =>{
 })
 
 
-var score = 0;
-function colisao() {
-    const objetos = document.querySelector('.game-board').childNodes
-    //const objetoInimigo= window.getComputedStyle(objetos[1])
-    const objetoNave = window.getComputedStyle(nave)
-
-    // const objetos = document.querySelector('.inimigos')
-    if(parseInt(objetoInimigo.bottom) - parseInt(objetoNave.bottom) <= 10 && parseInt(objetoInimigo.left) - parseInt(objetoNave.left) <=10) {
-        score++
-        console.log(score)
-    }   
-    document.querySelector('.scor').innerHTML = `${score}`   
-}

@@ -37,7 +37,7 @@ body{
     /*transform: rotate3d(1, 1, 0, 50deg);*/
 }
 .inimigos{
-    animation: enemies 4s forwards ease-in;
+    animation: enemies 2s forwards ease-in;
 }
 @keyframes enemies {
     from{
