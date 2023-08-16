@@ -1,60 +1,35 @@
 const carro = document.querySelector('.carro')
-const pipe = document.querySelector('.pipe')
+const bola1 = document.querySelector('.bola')
 
-// const loop = setInterval(() => {
-//     const pipePosition = pipe.offsetLeft;
-//     const carroPositon = +window.getComputedStyle(carro).bottom.replace("px","")
-//     console.log(carroPositon);
-//     if(pipePosition <= 250 && pipePosition > 0 && carroPositon < 250){
-//         pipe.style.animation = "none"
-//         pipe.style.left = `${pipePosition}px`
-//     }
-  
-// }, 10);
-const random = setInterval(() =>{
+const random = function (){
     Math.random() * ((2 - 1) + 1).toFixed(0)//return printando 1 ou 2
-})
-const loopEnemy = setInterval( () => {
-    criarInimigo()
-    clearInterval(loopEnemy)
-}, 5000);
-function  criarInimigo () {
-    const gameBoard = document.querySelector('.game-board');
-    const pipeEnemy = document.createElement('img');
-    pipeEnemy.src = "./image/bola.gif"
-    pipeEnemy.style.width = "200px"
-    pipeEnemy.style.height = "200px"
-    pipeEnemy.style.paddingBottom = "25px"
-    pipeEnemy.style.position = 'absolute'
-
-    
-    console.log(random);
-    if(random <= 1){
-        pipeEnemy.style.bottom = `${250}px`
-    }else if(random > 1){
-        pipeEnemy.style.bottom = `${0}px`
-    }
-    pipeEnemy.style.right = "200px"
-    pipeEnemy.classList = 'pipe'
-
-
-    const inter = setInterval(() => {
-        if(gameBoard.lastChild == pipeEnemy){
-            gameBoard.removeChild(pipeEnemy)
-            console.log('removido');
-        }else{
-            gameBoard.appendChild(pipeEnemy)
-            console.log('criado');
-        }
-    }, 2000);
-    
 }
-
-
 
 let coord = {
     x: carro.getBoundingClientRect().x
 };
+function killEnemy() {
+    const gameBoard = document.querySelector(".game-board")
+    const bola = document.querySelector('.pipe')
+    if(bola.style.right <= `${250}px`){
+        console.log("morangos");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 coord.x = 0;
 const mover = (e) => {
     const positionBoneco = +window.getComputedStyle(carro).bottom.replace("px","")
