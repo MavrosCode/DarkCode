@@ -6,6 +6,7 @@ const loop = setInterval(() => {
     //precisa pegar o top/bottom do pipe para comparar nos ifs
     const carroPositon = +window.getComputedStyle(carro).bottom.replace("px","")
     console.log(carroPositon);
+    //Comparar os dois tipos de ifs / ou
     if(pipePosition <= 300 && pipePosition > 0 && carroPositon < 250 || pipePosition <= 300 && pipePosition > 0 && carroPositon > 0){
         pipe.style.animation = "none"
         pipe.style.left = `${pipePosition}px`
