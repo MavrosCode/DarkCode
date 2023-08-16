@@ -9,7 +9,8 @@ const loop = setInterval(() => {
     //Comparar os dois tipos de ifs / ou
     //para ficar algo do tipo 
     /* se a posicao da bola em baixo for menor que 300 e maior que 0 e posicao do carro for menor que 250 (posicao da alt dele)  */
-    if(pipePosition <= 300 && pipePosition > 0 && carroPositon < 250 || pipePosition <= 300 && pipePosition > 0 && carroPositon > 0){
+    // || pipePosition <= 300 && pipePosition > 0 && carroPositon > 0
+    if(pipePosition <= 300 && pipePosition > 0 && carroPositon < 250){
         pipe.style.animation = "none"
         pipe.style.left = `${pipePosition}px`
     }
@@ -34,7 +35,7 @@ const jump = (e) =>{
             carro.style.bottom = `${coord.x}px`;
             setTimeout(() => {
                 carro.classList.remove('jump-up')
-            }, 500);
+            }, 600);
           
             console.log(coord.x)
             break;
@@ -47,7 +48,7 @@ const jump = (e) =>{
             carro.style.bottom = `${coord.x}px`;
             setTimeout(() => {
                 carro.classList.remove('jump-down')
-            }, 500);
+            }, 600);
             
             console.log(coord.x)
             break;
