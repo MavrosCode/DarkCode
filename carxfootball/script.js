@@ -10,7 +10,7 @@ const loop = setInterval(() => {
     //para ficar algo do tipo 
     /* se a posicao da bola em baixo for menor que 300 e maior que 0 e posicao do carro for menor que 250 (posicao da alt dele)  */
     // || pipePosition <= 300 && pipePosition > 0 && carroPositon > 0
-    if(pipePosition <= 300 && pipePosition > 0 && carroPositon < 250){
+    if(pipePosition <= 285 && pipePosition > 0 && carroPositon < 250){
         pipe.style.animation = "none"
         pipe.style.left = `${pipePosition}px`
     }
