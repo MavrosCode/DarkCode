@@ -7,6 +7,8 @@ const loop = setInterval(() => {
     const carroPositon = +window.getComputedStyle(carro).bottom.replace("px","")
     console.log(carroPositon);
     //Comparar os dois tipos de ifs / ou
+    //para ficar algo do tipo 
+    /* se a posicao da bola em baixo for menor que 300 e maior que 0 e posicao do carro for menor que 250 (posicao da alt dele)  */
     if(pipePosition <= 300 && pipePosition > 0 && carroPositon < 250 || pipePosition <= 300 && pipePosition > 0 && carroPositon > 0){
         pipe.style.animation = "none"
         pipe.style.left = `${pipePosition}px`
