@@ -14,7 +14,7 @@ const loop = setInterval(() => {
   
 }, 100);
 
-
+//obter a posicao Y do pipe para comparar
 let coord = {
     x: carro.getBoundingClientRect().x
 };
