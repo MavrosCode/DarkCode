@@ -1,78 +1,81 @@
 const carro = document.querySelector('.carro')
 const pipe = document.querySelector('.pipe')
 
-const loop = setInterval(() => {
-    const pipePosition = pipe.offsetLeft;
-    //precisa pegar o top/bottom do pipe para comparar nos ifs
-    const carroPositon = +window.getComputedStyle(carro).bottom.replace("px","")
-    console.log(carroPositon);
-    //Comparar os dois tipos de ifs / ou
-    //para ficar algo do tipo 
-    /* se a posicao da bola em baixo for menor que 300 e maior que 0 e posicao do carro for menor que 250 (posicao da alt dele)  */
-    // || pipePosition <= 300 && pipePosition > 0 && carroPositon > 0
-    if(pipePosition <= 285 && pipePosition > 0 && carroPositon < 250){
-        pipe.style.animation = "none"
-        pipe.style.left = `${pipePosition}px`
-    }
+// const loop = setInterval(() => {
+//     const pipePosition = pipe.offsetLeft;
+//     const carroPositon = +window.getComputedStyle(carro).bottom.replace("px","")
+//     console.log(carroPositon);
+//     if(pipePosition <= 250 && pipePosition > 0 && carroPositon < 250){
+//         pipe.style.animation = "none"
+//         pipe.style.left = `${pipePosition}px`
+//     }
   
-}, 100);
+// }, 10);
+const random = setInterval(() =>{
+    Math.random() * ((2 - 1) + 1).toFixed(0)//return printando 1 ou 2
+})
+const loopEnemy = setInterval( () => {
+    criarInimigo()
+    clearInterval(loopEnemy)
+}, 5000);
+function  criarInimigo () {
+    const gameBoard = document.querySelector('.game-board');
+    const pipeEnemy = document.createElement('img');
+    pipeEnemy.src = "./image/bola.gif"
+    pipeEnemy.style.width = "200px"
+    pipeEnemy.style.height = "200px"
+    pipeEnemy.style.paddingBottom = "25px"
+    pipeEnemy.style.position = 'absolute'
 
-//obter a posicao Y do pipe para comparar
-let coord = {
-    x: carro.getBoundingClientRect().x
-};
-coord.x = 0
-
-const jump = (e) =>{
-    console.log(e.key);
     
-    switch (e.key.toLocaleLowerCase()) {
-
-        case 'w':
-            if(coord.x < 250){
-            carro.classList.add('jump-up')
-            coord.x = coord.x + 250;
-            carro.style.bottom = `${coord.x}px`;
-            setTimeout(() => {
-                carro.classList.remove('jump-up')
-            }, 600);
-          
-            console.log(coord.x)
-            break;
-        }
-
-        case 's':
-            if(coord.x > 0){
-            carro.classList.add('jump-down')
-            coord.x = coord.x - 250;
-            carro.style.bottom = `${coord.x}px`;
-            setTimeout(() => {
-                carro.classList.remove('jump-down')
-            }, 600);
-            
-            console.log(coord.x)
-            break;
-        }
-
-        default:
-            break;
-        }
+    console.log(random);
+    if(random <= 1){
+        pipeEnemy.style.bottom = `${250}px`
+    }else if(random > 1){
+        pipeEnemy.style.bottom = `${0}px`
     }
+    pipeEnemy.style.right = "200px"
+    pipeEnemy.classList = 'pipe'
 
 
-
-
-
-
-
-function barreira() {
-    if(coord.x >= 251){
-        return barreira()
-    }
-    if(coord.x <= -1){
-        return barreira()
-    }
+    const inter = setInterval(() => {
+        if(gameBoard.lastChild == pipeEnemy){
+            gameBoard.removeChild(pipeEnemy)
+            console.log('removido');
+        }else{
+            gameBoard.appendChild(pipeEnemy)
+            console.log('criado');
+        }
+    }, 2000);
+    
 }
 
 
-document.addEventListener('keydown', jump );
+
+let coord = {
+    x: carro.getBoundingClientRect().x
+};
+coord.x = 0;
+const mover = (e) => {
+    const positionBoneco = +window.getComputedStyle(carro).bottom.replace("px","")
+    const botao = e.key
+    if(botao == "w".toLocaleLowerCase() && positionBoneco < 250){
+        coord.x = coord.x + 250;
+
+        carro.classList.remove('jump-down')
+        carro.classList.add('jump-up')
+
+
+        carro.style.bottom = `${coord.x}px`
+        //erro ao setar animation
+    }else if(botao == "s".toLocaleLowerCase() && positionBoneco > 0){
+        coord.x = coord.x - 250;
+
+        carro.classList.remove('jump-up')
+        carro.classList.add('jump-down')
+
+        carro.style.bottom = `${coord.x}px`
+
+    }
+}
+document.addEventListener('keydown', mover);
